@@ -1,8 +1,14 @@
+<?php
+$action = isset($_GET['action']) ? $_GET['action'] : NULL;
+
+?>
+
+
 <html>
 <body>
 <div style="text-align: center;">
     <h3>WebView</h3>
-    <input type="text" id="textBox" ></br>
+    <input type="text" id="textBox" ><?php echo $action?></br>
     <button onclick="showMessage()">Show Message</button>
 </div>
 <script>
@@ -14,7 +20,7 @@
     }
 
     function showMessage() {
-        Android.showToast();
+        WebViewJS.onHeight();
     }
 </script>
 </body>
