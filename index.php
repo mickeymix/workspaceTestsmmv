@@ -11,14 +11,14 @@ echo "Password:" . $password . "\n";
 $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
 
 // av3DYGLkwBsErphcyYp+imUW4QKs19hUnFyyYcXwURU=
-$encrypted = base64_encode(openssl_encrypt($action, $method, $password, OPENSSL_RAW_DATA, $iv));
+//$encrypted = base64_encode(openssl_encrypt($action, $method, $password, OPENSSL_RAW_DATA, $iv));
 
 // My secret message 1234
-$decrypted = openssl_decrypt(base64_decode($encrypted), $method, $password, OPENSSL_RAW_DATA, $iv);
+$decrypted = openssl_decrypt($action, $method, $password, OPENSSL_RAW_DATA, $iv);
 
 echo 'plaintext=' . $action . "\n";
 echo 'cipher=' . $method . "\n";
-echo 'encrypted to: ' . $encrypted . "\n";
+echo 'encrypted to: ' . $action . "\n";
 echo 'decrypted to: ' . $decrypted . "\n\n";
 
 ?>
