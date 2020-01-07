@@ -28,7 +28,7 @@ echo 'decrypted to: ' . $decrypted . "\n\n";
 <body>
 <div style="text-align: center;">
     <h3>WebView</h3>
-    <h1 id="textBox" ><?php echo $action ?></h1></br>
+    <h1 id="textBox" ><?php echo $decrypted ?></h1></br>
     <button onclick="showMessage()">Show Message</button>
 </div>
 <script>
