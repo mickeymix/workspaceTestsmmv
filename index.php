@@ -11,14 +11,14 @@ echo "Password:" . $password . "\n";
 $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
 
 // av3DYGLkwBsErphcyYp+imUW4QKs19hUnFyyYcXwURU=
-//$encrypted = base64_encode(openssl_encrypt($action, $method, $password, OPENSSL_RAW_DATA, $iv));
+$encrypted = base64_encode(openssl_encrypt($action, $method, $password, OPENSSL_RAW_DATA, $iv));
 
 // My secret message 1234
 $decrypted = openssl_decrypt($action, $method, $password, OPENSSL_RAW_DATA, $iv);
 
 echo 'plaintext=' . $action . "\n";
 echo 'cipher=' . $method . "\n";
-echo 'encrypted to: ' . $action . "\n";
+echo 'encrypted to: ' . $encrypted . "\n";
 echo 'decrypted to: ' . $decrypted . "\n\n";
 
 ?>
@@ -28,7 +28,7 @@ echo 'decrypted to: ' . $decrypted . "\n\n";
 <body>
 <div style="text-align: center;">
     <h3>WebView</h3>
-    <input type="text" id="textBox" ><?php echo $action ?></br>
+    <h1 id="textBox" ><?php echo $action ?></h1></br>
     <button onclick="showMessage()">Show Message</button>
 </div>
 <script>
