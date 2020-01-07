@@ -18,7 +18,7 @@ $decrypted = openssl_decrypt(base64_decode($action), $method, $password, OPENSSL
 
 echo 'plaintext=' . $action . "\n";
 echo 'cipher=' . $method . "\n";
-echo 'encrypted to: ' . $encrypted . "\n";
+echo 'encrypted to: ' . $action . "\n";
 echo 'decrypted to: ' . $decrypted . "\n\n";
 
 ?>
