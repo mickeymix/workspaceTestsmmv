@@ -14,7 +14,8 @@ $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0)
 //$encrypted = base64_encode(openssl_encrypt($action, $method, $password, OPENSSL_RAW_DATA, $iv));
 
 // My secret message 1234
-$decrypted = openssl_decrypt(base64_decode($action), $method, $password, OPENSSL_RAW_DATA, $iv);
+//$decrypted = openssl_decrypt(base64_decode($action), $method, $password, OPENSSL_RAW_DATA, $iv);
+$decrypted = base64_decode($action);
 
 echo 'plaintext=' . $action . "\n";
 echo 'cipher=' . $method . "\n";
