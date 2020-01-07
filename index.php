@@ -1,5 +1,6 @@
 <?php
 $action = isset($_GET['action']) ? $_GET['action'] : NULL;
+$action = utf8_decode(urldecode($action));
 $password = 'fqJfdzGDvfwbedsKSUGty3VZ9taXxMVw';
 $method = 'aes-256-cbc';
 
