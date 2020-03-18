@@ -1,6 +1,6 @@
 <?php
 $action = isset($_GET['action']) ? $_GET['action'] : NULL;
-$password = 'fqJfdzGDvfwbedsKSUGty3VZ9taXxMVw';
+$password = 'gv[u:ugvHogvmuF,[kpcvr]bg8=yjo20';
 $method = 'aes-256-cbc';
 
 // Must be exact 32 chars (256 bit)

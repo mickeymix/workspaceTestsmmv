@@ -1,6 +1,6 @@
 <?php
 
-echo $_POST["user"];
+//echo $_POST["user"];
 if(isset($_POST['user'] , $_POST['pass'])){
 
     echo json_encode(array('status' => '1','User'=> oNatDncryption($_POST['user']),'Pass'=> oNatDncryption($_POST['pass'])));
@@ -13,12 +13,12 @@ if(isset($_POST['user'] , $_POST['pass'])){
 function oNatDncryption($plaintext){
 
 //    $plaintext = 'My secret message 1234';
-    $password = 'fqJfdzGDvfwbedsKSUGty3VZ9taXxMVw';
+    $password = 'gv[u:ugvHogvmuF,[kpcvr]bg8=yjo20';
     $method = 'aes-256-cbc';
 
 // Must be exact 32 chars (256 bit)
     $password = substr(hash('sha256', $password, true), 0, 32);
-    echo "Password:" . $password . "\n";
+//    echo "Password:" . $password . "\n";
 
 // IV must be exact 16 chars (128 bit)
     $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
