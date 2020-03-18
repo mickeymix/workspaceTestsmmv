@@ -3,7 +3,7 @@
 echo $_POST["user"];
 if(isset($_POST['user'] , $_POST['pass'])){
 
-    echo json_encode(array('status' => '1','User'=> oNatDncryption($_POST['user']),'Pass'=> oNatDncryption($_POST['pass']) ));
+    echo json_encode(array('status' => '1','User'=> oNatDncryption($_POST['user']),'Pass'=> oNatDncryption($_POST['pass'])));
 
 }else{
     echo json_encode(array('status' => '0','message'=> "Error insert data! "));
@@ -12,7 +12,7 @@ if(isset($_POST['user'] , $_POST['pass'])){
 
 function oNatDncryption($action){
 
-    $password = 'gv[u:ugvHogvmuF,[kpcvr]bg8=yjo20';
+    $password = 'fqJfdzGDvfwbedsKSUGty3VZ9taXxMVw';
     $method = 'aes-256-cbc';
 
 // Must be exact 32 chars (256 bit)
