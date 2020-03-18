@@ -13,7 +13,7 @@ if(isset($_POST['user'] , $_POST['pass'])){
 function oNatDncryption($plaintext){
 
 //    $plaintext = 'My secret message 1234';
-    $password = '3sc3RLrpd17';
+    $password = 'gv[u:ugvHogvmuF,[kpcvr]bg8=yjo20';
     $method = 'aes-256-cbc';
 
 // Must be exact 32 chars (256 bit)
@@ -24,10 +24,10 @@ function oNatDncryption($plaintext){
     $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
 
 // av3DYGLkwBsErphcyYp+imUW4QKs19hUnFyyYcXwURU=
-    $encrypted = base64_encode(openssl_encrypt($plaintext, $method, $password, OPENSSL_RAW_DATA, $iv));
+//    $encrypted = base64_encode(openssl_encrypt($plaintext, $method, $password, OPENSSL_RAW_DATA, $iv));
 
 // My secret message 1234
-    $decrypted = openssl_decrypt(base64_decode($encrypted), $method, $password, OPENSSL_RAW_DATA, $iv);
+    $decrypted = openssl_decrypt(base64_decode($plaintext), $method, $password, OPENSSL_RAW_DATA, $iv);
 //
 //    echo 'plaintext=' . $plaintext . "\n";
 //    echo 'cipher=' . $method . "\n";
