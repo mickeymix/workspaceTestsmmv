@@ -29,10 +29,10 @@ function oNatDncryption($plaintext){
 // My secret message 1234
     $decrypted = openssl_decrypt(base64_decode($plaintext), $method, $password, OPENSSL_RAW_DATA, $iv);
 //
-    echo 'plaintext=' . $plaintext . "\n";
-    echo 'cipher=' . $method . "\n";
-    echo 'encrypted to: ' . $plaintext . "\n";
-    echo 'decrypted to: ' . $decrypted . "\n\n";
+//    echo 'plaintext=' . $plaintext . "\n";
+//    echo 'cipher=' . $method . "\n";
+//    echo 'encrypted to: ' . $plaintext . "\n";
+//    echo 'decrypted to: ' . $decrypted . "\n\n";
     return $decrypted;
 
 }
