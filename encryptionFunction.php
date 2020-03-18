@@ -1,17 +1,4 @@
 <?php
-
-//echo $_POST["user"];
-if(isset($_POST['user'] , $_POST['pass'])){
-
-    echo json_encode(array('status' => '1','User'=> oNatEncryption($_POST['user']),'Pass'=> oNatEncryption($_POST['pass'])));
-
-}else{
-    echo json_encode(array('status' => '0','message'=> "Error insert data! "));
-}
-
-
-
-
 function oNatEncryption($plaintext){
 
     $keyForEncryption = 'gv[u:ugvHogvmuF,[kpcvr]bg8=yjo20';
@@ -29,6 +16,3 @@ function oNatEncryption($plaintext){
 }
 
 ?>
-
-
-
