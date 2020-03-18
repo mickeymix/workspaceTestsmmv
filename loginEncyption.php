@@ -10,9 +10,9 @@ if(isset($_POST['user'] , $_POST['pass'])){
 }
 
 
-function oNatDncryption($action){
+function oNatDncryption($plaintext){
 
-    $plaintext = 'My secret message 1234';
+//    $plaintext = 'My secret message 1234';
     $password = '3sc3RLrpd17';
     $method = 'aes-256-cbc';
 
