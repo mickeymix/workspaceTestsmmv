@@ -3,7 +3,7 @@
 //echo $_POST["user"];
 if(isset($_POST['user'] , $_POST['pass'])){
 
-    echo json_encode(array('status' => '1','message'=> "User Decryption is ".oNatDncryption($_POST['user'])." Pass Decryption is ".oNatDncryption($_POST['user']).""));
+    echo json_encode(array('status' => '1','message'=> '"User Decryption is '.oNatDncryption($_POST['user']).' Pass Decryption is '.oNatDncryption($_POST['pass']).' '));
 
 }else{
     echo json_encode(array('status' => '0','message'=> "Error insert data! "));
