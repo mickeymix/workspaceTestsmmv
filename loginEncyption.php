@@ -33,7 +33,7 @@ function oNatDncryption($plaintext){
     echo 'cipher=' . $method . "\n";
     echo 'encrypted to: ' . $plaintext . "\n";
     echo 'decrypted to: ' . $decrypted . "\n\n";
-//    return $decrypted;
+    return $decrypted;
 
 }
 
