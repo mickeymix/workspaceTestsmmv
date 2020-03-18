@@ -13,7 +13,7 @@ if(isset($_POST['user'] , $_POST['pass'])){
 function oNatDncryption($plaintext){
 
 //    $plaintext = 'My secret message 1234';
-    $password = 'gv[u:ugvHogvmuF,[kpcvr]bg8=yjo20';
+    $password = 'fqJfdzGDvfwbedsKSUGty3VZ9taXxMVw';
     $method = 'aes-256-cbc';
 
 // Must be exact 32 chars (256 bit)
@@ -29,11 +29,11 @@ function oNatDncryption($plaintext){
 // My secret message 1234
     $decrypted = openssl_decrypt(base64_decode($plaintext), $method, $password, OPENSSL_RAW_DATA, $iv);
 //
-//    echo 'plaintext=' . $plaintext . "\n";
-//    echo 'cipher=' . $method . "\n";
+    echo 'plaintext=' . $plaintext . "\n";
+    echo 'cipher=' . $method . "\n";
 //    echo 'encrypted to: ' . $encrypted . "\n";
-//    echo 'decrypted to: ' . $decrypted . "\n\n";
-    return $decrypted;
+    echo 'decrypted to: ' . $decrypted . "\n\n";
+//    return $decrypted;
 
 }
 
