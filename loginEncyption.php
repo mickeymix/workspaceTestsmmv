@@ -17,7 +17,7 @@ function oNatDncryption($action){
 
 // Must be exact 32 chars (256 bit)
     $password = substr(hash('sha256', $password, true), 0, 32);
-    echo "Password:" . $password . "\n";
+//    echo "Password:" . $password . "\n";
 
 // IV must be exact 16 chars (128 bit)
     $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
