@@ -1,9 +1,9 @@
 <?php
 
 //echo $_POST["user"];
-if(isset($_POST['user'] , $_POST['pass'])){
+if(isset($_POST['user'] , $_POST['pass'],$_POST['keytype'])){
 
-    echo json_encode(array('status' => '1','User'=> oNatEncryption($_POST['user']),'Pass'=> oNatEncryption($_POST['pass'])));
+    echo json_encode(array('status' => '1','User'=> oNatEncryption($_POST['user'],$_POST['keytype']),'Pass'=> oNatEncryption($_POST['pass'],$_POST['keytype'])));
 
 }else{
     echo json_encode(array('status' => '0','message'=> "Error insert data! "));
@@ -12,10 +12,13 @@ if(isset($_POST['user'] , $_POST['pass'])){
 
 
 
-function oNatEncryption($plaintext){
+function oNatEncryption($plaintext,$keyType){
 
-//    $plaintext = 'My secret message 1234';
-    $password = 'gv[u:ugvHogvmuF,[kpcvr]bg8=yjo20';
+    if (0 === $keyType){
+        $password = 'gv[u:ugvHogvmuF,[kpcvr]bg8=yjo20';
+    }else{
+        $password = 'gv[u:uc=mcvofNgmiflesiy[gfaot0Ut';
+    }
     $method = 'aes-256-cbc';
 
 // Must be exact 32 chars (256 bit)
@@ -28,13 +31,6 @@ function oNatEncryption($plaintext){
 // av3DYGLkwBsErphcyYp+imUW4QKs19hUnFyyYcXwURU=
     $encrypted = base64_encode(openssl_encrypt($plaintext, $method, $password, OPENSSL_RAW_DATA, $iv));
 
-// My secret message 1234
-//    $decrypted = openssl_decrypt(base64_decode($plaintext), $method, $password, OPENSSL_RAW_DATA, $iv);
-//
-//    echo 'plaintext=' . $plaintext . "\n";
-//    echo 'cipher=' . $method . "\n";
-//    echo 'encrypted to: ' . $plaintext . "\n";
-//    echo 'decrypted to: ' . $decrypted . "\n\n";
     return $encrypted;
 
 }
