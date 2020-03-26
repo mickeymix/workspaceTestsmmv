@@ -1,9 +1,9 @@
 <?php
 
 //echo $_POST["user"];
-if(isset($_POST['user'] , $_POST['pass'],$_POST['keytype'])){
+if(isset($_POST['valueKey1'],$_POST['keytype'])){
 
-    echo json_encode(array('status' => '1','User'=> oNatEncryption($_POST['user'],$_POST['keytype']),'Pass'=> oNatEncryption($_POST['pass'],$_POST['keytype'])));
+    echo json_encode(array('status' => '1','Key1AfterEncryption'=> oNatEncryption($_POST['valueKey1'],$_POST['keytype'])));
 
 }else{
     echo json_encode(array('status' => '0','message'=> "Error insert data! "));
