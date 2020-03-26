@@ -13,7 +13,7 @@ if(isset($_POST['valuePlainText'],$_POST['keytype'])){
 
 function generateKeyDynamic(){
     $myDateTime =  DateTime::createFromFormat('yyyyMMddhhmmss', Date());
-    return "abc".date('YMdhis')."".generateRandomString(12)."nat";
+    return "abc".date('YmdHis')."".generateRandomString(12)."nat";
 
 }
 function generateRandomString($length) {
