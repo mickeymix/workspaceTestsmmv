@@ -1,11 +1,8 @@
 <?php
-function oNatEncryption($plaintext,$keyType){
+function oNatEncryptionPassword($keyEncryption2, $passwordPlaneText)
+{
+    $password = $keyEncryption2;
 
-    if (0 === $keyType){
-        $password = 'gv[u:ugvHogvmuF,[kpcvr]bg8=yjo20';
-    }else{
-        $password = 'gv[u:uc=mcvofNgmiflesiy[gfaot0Ut';
-    }
     $method = 'aes-256-cbc';
 
 // Must be exact 32 chars (256 bit)
@@ -15,8 +12,8 @@ function oNatEncryption($plaintext,$keyType){
 // IV must be exact 16 chars (128 bit)
     $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
 
-// av3DYGLkwBsErphcyYp+imUW4QKs19hUnFyyYcXwURU=
-    return base64_encode(openssl_encrypt($plaintext, $method, $password, OPENSSL_RAW_DATA, $iv));
+    return base64_encode(openssl_encrypt($passwordPlaneText, $method, $password, OPENSSL_RAW_DATA, $iv));
 
 }
+
 ?>
