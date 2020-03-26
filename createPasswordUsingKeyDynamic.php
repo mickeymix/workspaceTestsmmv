@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set("Asia/Bangkok");
+
 //echo $_POST["user"];
 if(isset($_POST['valuePlainText'],$_POST['keytype'])){
 
@@ -12,7 +14,7 @@ if(isset($_POST['valuePlainText'],$_POST['keytype'])){
 }
 
 function generateKeyDynamic(){
-    $myDateTime =  DateTime::createFromFormat('yyyyMMddhhmmss', Date());
+
     return "abc".date('YmdHis')."".generateRandomString(12)."nat";
 
 }
