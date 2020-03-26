@@ -6,8 +6,6 @@ function oNatDecryption($keyType,$headerKey,$passwordValue){
     }else{
         $keyForEncryption = 'gv[u:uc=mcvofNgmiflesiy[gfaot0Ut';
     }
-
-
     $method = 'aes-256-cbc';
 
     $keyForEncryption = substr(hash('sha256', $keyForEncryption, true), 0, 32);
@@ -17,7 +15,9 @@ function oNatDecryption($keyType,$headerKey,$passwordValue){
 
     $keyForDecryption2 =  openssl_decrypt(base64_decode($headerKey), $method, $keyForEncryption, OPENSSL_RAW_DATA, $iv);
 
-    return  openssl_decrypt(base64_decode($passwordValue), $method, $keyForDecryption2, OPENSSL_RAW_DATA, $iv);
+    $keyForEncryptionHash2 = substr(hash('sha256', $keyForDecryption2, true), 0, 32);
+
+    return  openssl_decrypt(base64_decode($passwordValue), $method, $keyForEncryptionHash2, OPENSSL_RAW_DATA, $iv);
 }
 
 ?>
