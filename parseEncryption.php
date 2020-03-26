@@ -24,9 +24,10 @@ function oNatDecryption($keyType,$headerKey,$passwordValue){
 
     $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
 
-    $keyForDecryption2 =  openssl_decrypt(base64_decode($headerKey), $method, $keyForEncryption, OPENSSL_RAW_DATA, $iv);
+//    $keyForDecryption2 =  openssl_decrypt(base64_decode($headerKey), $method, $keyForEncryption, OPENSSL_RAW_DATA, $iv);
 
-    return  openssl_decrypt(base64_decode($passwordValue), $method, $keyForDecryption2, OPENSSL_RAW_DATA, $iv);
+    return openssl_decrypt(base64_decode($headerKey), $method, $keyForEncryption, OPENSSL_RAW_DATA, $iv);
+//    return  openssl_decrypt(base64_decode($passwordValue), $method, $keyForDecryption2, OPENSSL_RAW_DATA, $iv);
 }
 ?>
 
