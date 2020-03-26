@@ -1,18 +1,16 @@
 <?php
 
 //echo $_POST["user"];
-if(isset($_POST['user'] , $_POST['pass'],$_POST['keytype'])){
+if(isset($_POST['headerKey'] , $_POST['valueEncryption'],$_POST['keytype'])){
 
-    echo json_encode(array('status' => '1','User'=> oNatEncryption($_POST['user'],$_POST['keytype']),'Pass'=> oNatEncryption($_POST['pass'],$_POST['keytype'])));
+    echo json_encode(array('status' => '1','valueAfterDecryption'=> oNatDecryption($_POST['keytype'],$_POST['headerKey'],$_POST['valueEncryption'])));
 
 }else{
     echo json_encode(array('status' => '0','message'=> "Error insert data! "));
 }
 
 
-
-
-function oNatEncryption($plaintext,$keyType){
+function oNatDecryption($keyType,$headerKey,$passwordValue){
 
     if (0 === $keyType){
         $keyForEncryption = 'gv[u:ugvHogvmuF,[kpcvr]bg8=yjo20';
@@ -26,12 +24,10 @@ function oNatEncryption($plaintext,$keyType){
 
     $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
 
-    $decrypted = openssl_decrypt(base64_decode($plaintext), $method, $keyForEncryption, OPENSSL_RAW_DATA, $iv);
+    $keyForDecryption2 =  openssl_decrypt(base64_decode($headerKey), $method, $keyForEncryption, OPENSSL_RAW_DATA, $iv);
 
-    return $decrypted;
-
+    return  openssl_decrypt(base64_decode($passwordValue), $method, $keyForDecryption2, OPENSSL_RAW_DATA, $iv);
 }
-
 ?>
 
 
