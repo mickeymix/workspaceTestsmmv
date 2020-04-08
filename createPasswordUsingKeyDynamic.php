@@ -3,22 +3,25 @@
 date_default_timezone_set("Asia/Bangkok");
 
 //echo $_POST["user"];
-if(isset($_POST['valuePlainText'],$_POST['keytype'])){
+if (isset($_POST['valuePlainText'], $_POST['keytype'])) {
 
     $genKeyDynamic = generateKeyDynamic();
 
-    echo json_encode(array('status' => '1','resultGeneratedKey'=>$genKeyDynamic,'valueAfterEncryption'=> oNatEncryptionPassword($_POST['keytype'],$_POST['valuePlainText'],$genKeyDynamic)[0],'valueKeyEncryption'=> oNatEncryptionPassword($_POST['keytype'],$_POST['valuePlainText'],$genKeyDynamic)[1]));
+    echo json_encode(array('status' => '1', 'resultGeneratedKey' => $genKeyDynamic, 'valueAfterEncryption' => oNatEncryptionPassword($_POST['keytype'], $_POST['valuePlainText'], $genKeyDynamic)[0], 'valueKeyEncryption' => oNatEncryptionPassword($_POST['keytype'], $_POST['valuePlainText'], $genKeyDynamic)[1]));
 
-}else{
-    echo json_encode(array('status' => '0','message'=> "Error insert data! "));
+} else {
+    echo json_encode(array('status' => '0', 'message' => "Error insert data! "));
 }
 
-function generateKeyDynamic(){
+function generateKeyDynamic()
+{
 
-    return "abc".date('YmdHis')."".generateRandomString(12)."nat";
+    return "abc" . date('YmdHis') . "" . generateRandomString(12) . "nat";
 
 }
-function generateRandomString($length) {
+
+function generateRandomString($length)
+{
     $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
     $randomString = '';
@@ -27,15 +30,15 @@ function generateRandomString($length) {
     }
     return $randomString;
 }
-function oNatEncryptionPassword($keyType, $passwordPlaneText,$genKeyDynamic)
+
+function oNatEncryptionPassword($keyType, $passwordPlaneText, $genKeyDynamic)
 {
-//    $password = $keyEncryption2;
-    if ("0" === $keyType){
+    if ("0" === $keyType) {
         $password = 'gv[u:ugvHogvmuF,[kpcvr]bg8=yjo20';
-    }else  if ("1" === $keyType){
+    } else if ("1" === $keyType) {
         $password = 'gv[u:uc=mcvofNgmiflesiy[gfaot0Ut';
-    }else{
-        return array('invalid Keytype','Cannot Encryption');
+    } else {
+        return array('invalid Keytype', 'Cannot Encryption');
     }
     $method = 'aes-256-cbc';
 
@@ -50,7 +53,7 @@ function oNatEncryptionPassword($keyType, $passwordPlaneText,$genKeyDynamic)
 
     $encryptKeyTwo = base64_encode(openssl_encrypt($genKeyDynamic, $method, $hashKeyOne, OPENSSL_RAW_DATA, $iv));
 
-    return array($encryptValue,$encryptKeyTwo);
+    return array($encryptValue, $encryptKeyTwo);
 
 }
 

@@ -12,11 +12,14 @@ if(isset($_POST['headerKey'] , $_POST['valueEncryption'],$_POST['keytype'])){
 
 function oNatDecryption($keyType,$headerKey,$passwordValue){
 
-    if (0 === $keyType){
+    if ("0" === $keyType){
         $keyForEncryption = 'gv[u:ugvHogvmuF,[kpcvr]bg8=yjo20';
-    }else{
+    }else if ("1" === $keyType){
         $keyForEncryption = 'gv[u:uc=mcvofNgmiflesiy[gfaot0Ut';
+    }else{
+        return false;
     }
+
     $method = 'aes-256-cbc';
 
     $keyForEncryption = substr(hash('sha256', $keyForEncryption, true), 0, 32);
