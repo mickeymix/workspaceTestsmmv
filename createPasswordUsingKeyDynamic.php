@@ -30,9 +30,9 @@ function generateRandomString($length) {
 function oNatEncryptionPassword($keyType, $passwordPlaneText,$genKeyDynamic)
 {
 //    $password = $keyEncryption2;
-    if ("mobile" === $keyType){
+    if ("0" === $keyType){
         $password = 'gv[u:ugvHogvmuF,[kpcvr]bg8=yjo20';
-    }else  if ("angstrom" === $keyType){
+    }else  if ("1" === $keyType){
         $password = 'gv[u:uc=mcvofNgmiflesiy[gfaot0Ut';
     }else{
         return array('invalid Keytype','Cannot Encryption');
