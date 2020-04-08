@@ -32,7 +32,7 @@ function oNatEncryptionPassword($keyType, $passwordPlaneText,$genKeyDynamic)
 //    $password = $keyEncryption2;
     if ("mobile" === $keyType){
         $password = 'gv[u:ugvHogvmuF,[kpcvr]bg8=yjo20';
-    }else  if ("angstorm" === $keyType){
+    }else  if ("angstrom" === $keyType){
         $password = 'gv[u:uc=mcvofNgmiflesiy[gfaot0Ut';
     }else{
         return array('invalid Keytype','Cannot Encryption');
