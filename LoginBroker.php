@@ -30,7 +30,7 @@ GkIyZeP6/duexzENXE4iTnGuEIcKOo8c8QIDAQAB
     $rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
     $ciphertext = $rsa->encrypt($plaintext);
     $loginToken = bin2hex($ciphertext);
-
+    echo "ddddddd";
     $ch = curl_init();
     $post = [
         'loginToken' => $loginToken
